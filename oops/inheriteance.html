@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name,age){
+                this._name=name;
+                this._age=age;
+            }
+        get name(){
+            return this._name;
+        }
+    set name(newName){
+        this._name=newName;
+    }
+    get age() {
+      return this._age;
+    }
+  
+    set age(newAge) {
+      this._age = newAge;
+    }
+    makesound(){
+        console.log("Generic animal sound")
+    }
+  
+        }
+
+    class  Mammal extends Animal{
+        constructor(name,age,furColor){
+            super(name,age);
+            this._furColor=furColor;
+        }
+        makesound()
+    {
+        console.log("Cat sound");
+    }
+}
+class Bird extends Animal{
+    constructor(name,age,wingSpan){
+        super(name,age)
+            this._wingSpan=wingSpan;
+        }
+        makesound(){
+            console.log("bird sound")
+        }
+        fly(){
+            console.log(`${this._name} is flying with a wing span of ${this._wingSpan} meters.`);
+        }
+    }
+    class ZooKeeper{
+        static  _totalAnimals=0;
+       static totalAnimals(){
+        console.log(`Total animal in the Zoo:${ZooKeeper._totalAnimals}`)
+       }
+       static incrementTotalAnimals() {
+      ZooKeeper._totalAnimals++;
+    }
+    }
+
+
+
+// EXECUTION
+    const Mammals=new Mammal("Cat",5,"orange");
+    const Birds=new Bird("Sparrow",2,3);
+Mammals.name="Dog";
+console.log(`${Mammals.name} is ${Mammals.age} years old `);
+Mammals.makesound();
+Birds.makesound();
+Birds.fly();
+ZooKeeper.totalAnimals();
+
+    </script>
+</body>
+</html>

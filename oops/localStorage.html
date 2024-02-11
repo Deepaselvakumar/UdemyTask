@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: pink;
+    }
+    h1{
+        text-align: center;
+    }
+    #todoList {
+        list-style-type: none;
+        padding: 0;
+       
+    }
+    li {
+        margin: 8px 0;
+        padding: 8px;
+        font-size: 20px;
+        color: white;
+        border: 1px solid #e1e5e7;
+        background-color: rgb(13, 41, 41);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    input[type="text"] {
+        padding: 8px;
+        margin-left: 45em;
+        color: rgb(18, 18, 18);
+        font-weight: bold;
+        text-align: center;
+       
+    }
+    button {
+        padding: 8px;
+        cursor: pointer;
+    }
+   
+</style>
+
+</head>
+
+    <body>
+
+        <div>
+            <h1>Simple Todo App</h1>
+            <input type="text" id="newTodo" placeholder="Enter a new todo">
+            <button onclick="addTodo()">Add Todo</button>
+            <ul id="todoList"></ul>
+        </div>
+        
+        <script>
+            
+            function loadTo() {
+                const todoList = JSON.parse(localStorage.getItem('todos')) || [];
+                const todoListElement = document.getElementById('todoList');
+                
+                todoListElement.innerHTML = '';
+                todoList.forEach(todo => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `${todo} <button onclick="removeTodo('${todo}')">Remove</button>`;
+                    todoListElement.appendChild(li);
+                });
+            }
+            function addTodo() {
+                const newTodoInput = document.getElementById('newTodo');
+                const newTodo = newTodoInput.value.trim();
+        
+                if (newTodo !== '') {
+                    const todoList = JSON.parse(localStorage.getItem('todos')) || [];
+                    todoList.push(newTodo);
+                    localStorage.setItem('todos', JSON.stringify(todoList));
+        
+                    newTodoInput.value = '';
+                    loadTo();
+                }
+            }
+        
+            function removeTodo(todoToRemove) {
+                const todoList = JSON.parse(localStorage.getItem('todos')) || [];
+                const updatedTodoList = todoList.filter(todo => todo !== todoToRemove);
+                localStorage.setItem('todos', JSON.stringify(updatedTodoList));
+                loadTo();
+            }
+        
+            loadTo();
+        </script>
+        
+        
+        
+       
+</body>
+</html>
