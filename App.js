@@ -17,24 +17,24 @@
 
 
 // // GAME
-// import Demogame from "./components/Game";
-// import "./App.css";
-// // import Demogame from "./components/Demogame";
-// function App() {
-//   return (
-//     <div>
-//       <Demogame />
-//     </div>
-//   );
-// }
+import Demogame from "./components/Game";
+import "./App.css";
+// import Demogame from "./components/Demogame";
+function App() {
+  return (
+    <div>
+      <Demogame />
+    </div>
+  );
+}
 
-// export default App;
+export default App;
 
 // CALCULATOR
-import Calculator from "./components/Calculator";
-function  App(){
-  return(
-    <div><Calculator/></div>
-  )
-}
-export default App;
+// import Calculator from "./components/Calculator";
+// function  App(){
+//   return(
+//     <div><Calculator/></div>
+//   )
+// }
+// export default App;
