@@ -1,40 +1,13 @@
-// import React from "react";
-// // import Header from "./Header";
-// import Section from "./Section";
-// import Footer from "./Footer";
-// function App(){
-//   return(
-//     <div>
-//       <Section />
-//     <Footer />
-//     </div>
-//   )
-// }
-
-
-
-// export default App;
-
-
-// // GAME
-import Demogame from "./components/Game";
-import "./App.css";
-// import Demogame from "./components/Demogame";
-function App() {
-  return (
-    <div>
-      <Demogame />
+import Dyanamic from "./components/Dyanamic.jsx"
+// import './App.css';
+function App(){
+  return(
+    <div id="app">
+      <h1>Time to Practice</h1>
+      <p>Welcome on board of this course! You got this 💪</p>
+      <Dyanamic />
     </div>
-  );
+  )
 }
 
-export default App;
-
-// CALCULATOR
-// import Calculator from "./components/Calculator";
-// function  App(){
-//   return(
-//     <div><Calculator/></div>
-//   )
-// }
-// export default App;
+export default App;
